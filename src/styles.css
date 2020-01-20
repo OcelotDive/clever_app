@@ -1,0 +1,199 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #536976;
+  background: -webkit-linear-gradient(to right, #292E49, #536976);
+  background: linear-gradient(to right, #292E49, #536976);
+}
+
+.mainPage,
+.mainPageReport {
+  position: relative;
+  max-width: 900px;
+  box-shadow: 0 48px 80px -32px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  min-height: 800px;
+  display: flex;
+  margin: auto;
+}
+
+.chart {
+  box-shadow: 0 48px 80px -32px rgba(0, 0, 0, 0.3);
+}
+
+.logoImage {
+  width: 200px;
+}
+
+.searchLabel {
+  font-size: 0.7em;
+}
+
+#formGroup {
+  margin-left: 10%;
+}
+
+#addAccountGroup {
+  width: 30%;
+  margin-top: 1%;
+}
+
+.btn {
+  margin: 3% 3% 0 0;
+}
+
+#reportButton {
+  margin-top: 5%;
+  float: right;
+}
+
+.reportBackButton {
+  /*margin: 90% 0 5% 3%; */
+  top: 90%;
+  display: absolute;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+  background: #efefef;
+  box-shadow: 0 48px 80px -32px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  padding-bottom: 2%;
+}
+
+.tabsInvestorPage {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+  min-height: 300px;
+  background: #efefef;
+  box-shadow: 0 48px 80px -32px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  padding: 30px;
+}
+
+#individualInvestorFormGroup,
+#individualInvestorFormGroupPadding {
+  width: 50%;
+  margin-top: 1%;
+}
+
+#individualInvestorFormGroupPadding {
+  visibility: hidden;
+  display: block;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+}
+
+.tabLabel {
+  width: 100%;
+  padding: 10px 15px;
+  background: rgb(23, 162, 184);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  border: 1px solid #aaaca8;
+  transition: background 0.1s, color 0.1s;
+}
+
+.tabLabel:hover {
+  background: #d8d8d8;
+}
+
+.tabLabel:active {
+  background: #ccc;
+}
+
+.radioInput:focus + .tabLabel {
+  box-shadow: inset 0px 0px 0px 3px #2aa1c0;
+  z-index: 1;
+}
+
+.radioInput:checked + .tabLabel {
+  background: #fff;
+  color: #000;
+}
+
+.investorGroupHeading {
+  text-align: center;
+  width: 100%;
+}
+
+.investorRows {
+  cursor: pointer;
+}
+
+.investorRows:hover {
+  background-color: #ffc107;
+}
+
+.panel {
+  display: none;
+  padding: 20px 30px 30px;
+  background: #fff;
+  width: 100%;
+}
+
+.radioInput:checked + .tabLabel + .panel {
+  display: block;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+td,
+th {
+  border: 1px solid #5a8bd3;
+  text-align: center;
+  padding: 5px;
+}
+
+th {
+  font-size: 0.8em;
+}
+
+td {
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #5a8bd3;
+}
+
+.optionDefault {
+  color: gray;
+}
+
+.chart {
+  margin: auto;
+}
+
+/*media*/
+
+@media (min-width: 600px) {
+  .tabLabel {
+    width: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .panel {
+    order: 99;
+  }
+}
