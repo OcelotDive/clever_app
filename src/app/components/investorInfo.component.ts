@@ -67,7 +67,7 @@ export class InvestorInfoComponent {
   }
 
   addAccountClick(balanceValue: string, accountType: string) {
-    if (balanceValue.length <= 0) return;
+    if (balanceValue.length <= 0 || accountType.length <= 0) return;
     const accountObj = {
       accountId: 0,
       investorId: 0,
@@ -80,7 +80,6 @@ export class InvestorInfoComponent {
 
       accountObj.accountId = accountsResponse.length + 1;
       accountObj.amountHeld = parseFloat(parseFloat(balanceValue).toFixed(2));
-      accountObj.investorId = 25
       accountObj.type = accountType;
 
       this.investorAccounts.push(accountObj);
@@ -91,9 +90,4 @@ export class InvestorInfoComponent {
   }
 }
 
-interface Investor {
-  investorId: number;
-  name: string;
-  surname: string;
-  dateCreated: string;
-}
+
