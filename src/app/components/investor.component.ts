@@ -9,13 +9,13 @@ import { InvestorService } from '../services/investor.service';
   <section class="tabs">
     <ng-container *ngFor="let investorGroup of investorsArray; let i = index">
       <input name="tabs" type="radio" [attr.id]="'tab' + i" checked="checked" class="radioInput" />
-      <label [attr.for]="'tab' + i" class="tabLabel">{{investorGroup[0].investorId}}-{{investorGroup[investorGroup.length - 1].investorId}}</label>
+      <label [attr.for]="'tab' + i" class="tabLabel" [class.tabLabelOff]="hasUserSearched && investorsArray[0].length > 0">{{investorGroup[0].investorId}}-{{investorGroup[investorGroup.length - 1].investorId}}</label>
       <div class="panel">
         <img class="logoImage" src="assets/cleverNB.png" />
         <div class="form-group row" id="formGroup">
           <div class="col-xs-4">
             <label for="searchInputText" class="searchLabel">Investor Search: </label>
-            <input name="searchArea" type="text" class="form-control" id="searcInputTextBox" #searchInputTextBox placeholder="Name or Surname" (keyup.enter)="onSearchClick(searchInputTextBox.value)" [(ngModel)]="searchInput" />
+            <input name="searchArea" type="text" class="form-control"  #searchInputTextBox placeholder="Name or Surname" (keyup.enter)="onSearchClick(searchInputTextBox.value)" [(ngModel)]="searchInput" />
             <button class="btn btn-info" (click)="onSearchClick(searchInputTextBox.value)">Search</button>
             <button class="btn btn-info" (click)="onClearSearchClick()">Clear</button>
           </div>
@@ -99,7 +99,9 @@ export class InvestorListComponent {
     this.investorService.getInvestors().subscribe(investorResponse => {
       this.investorsArray = this.selectionPages(investorResponse, 10);
     })
+    setTimeout(() => {
     this.hasUserSearched = false;
+    }, 1000)
   }
 
   capitilize(input: string) {
