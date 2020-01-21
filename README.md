@@ -1,5 +1,5 @@
 # Angular QuickStart Source
-![cleverAppImage](https://github.com/OcelotDive/randomImages/blob/master/cleverMain.PNG)
+![cleverAppImage](https://github.com/OcelotDive/randomImages/blob/master/images/cleverMain.PNG)
 
 **This repository is now deprecated. The Angular Quickstart project was a nice starting point for creating Angular applications. Now we recommend using the [Angular CLI](https://github.com/angular/angular-cli) to create new Angular projects.**
 
