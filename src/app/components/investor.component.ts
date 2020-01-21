@@ -35,7 +35,7 @@ import { InvestorService } from '../services/investor.service';
             <td>{{investor.dateCreated | date: 'dd/MM/yyyy'}}</td>
           </tr>
         </table>
-        <button class="btn btn-success" id="reportButton" routerLink="/accountBreakdown" routerLinkActive="active">Report</button>
+        <button class="btn btn-success" id="reportButton" routerLink="/accountBreakdown" routerLinkActive="active">Overall Report</button>
       </div>
     </ng-container>
   </section>
@@ -52,6 +52,7 @@ export class InvestorListComponent {
   searchInput: string = '';
   hasUserSearched: boolean = false;
   fullImagePath: string;
+
 
   constructor(private investorService: InvestorService) {
 
@@ -90,6 +91,7 @@ export class InvestorListComponent {
       }
     )
     this.hasUserSearched = value === "" ? false : true;
+
   }
 
   onClearSearchClick() {
