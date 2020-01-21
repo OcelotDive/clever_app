@@ -72,10 +72,11 @@ export class InvestorInfoComponent {
   addAccountClick(balanceValue: string, accountType: string) {
     this.balanceInput = "";
     this.detailError = false;
-    if (balanceValue.length <= 0 || accountType.length <= 0) {
+    if (balanceValue.length <= 0 || accountType.length <= 0 || isNaN(parseFloat(balanceValue))) {
         this.detailError = true;
       return;
     } 
+
     const accountObj = {
       accountId: 0,
       investorId: 0,

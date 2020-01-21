@@ -65,6 +65,8 @@ h6 {
 
 .tabs {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
   flex-wrap: wrap;
   max-width: 700px;
   min-height: 700px;
@@ -119,8 +121,14 @@ h6 {
   border: 1px solid #aaaca8;
   transition: background 0.1s, color 0.1s;
   border-top-right-radius: 15px;
-}
+  border-top-left-radius: 5px;
+  margin: -5px;
 
+}
+.tabLabel:last-of-type {
+  margin: 0;
+  margin-top: -5px;
+}
 .tabLabelOff {
   width: 0;
   padding: 10px 15px;
@@ -143,9 +151,11 @@ h6 {
   background: #ccc;
 }
 
-.radioInput:focus + .tabLabel {
-  box-shadow: inset 0px 0px 0px 3px #2aa1c0;
-  z-index: 1;
+.radioInput:focus + .tabLabel .panel{
+ /* box-shadow: inset 0px 0px 0px 1px #2aa1c0; */
+ /* z-index: 1; */ 
+
+
 }
 
 .radioInput:checked + .tabLabel {

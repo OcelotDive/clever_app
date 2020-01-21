@@ -20,7 +20,7 @@ import { InvestorService } from '../services/investor.service';
             <button class="btn btn-info" (click)="onClearSearchClick()">Clear</button>
           </div>
         </div>
-        <h6 class="investorGroupHeading">Investor Group: {{this.hasUserSearched === true ? "Custom Search" : i + 1}}</h6>
+        <h6 class="investorGroupHeading">Investor Group: {{this.hasUserSearched === true ? "Custom Search" : 10 - i}}</h6>
         <table>
           <tr>
             <th>ID</th>
@@ -57,7 +57,7 @@ export class InvestorListComponent {
   constructor(private investorService: InvestorService) {
 
     this.investorService.getInvestors().subscribe(investorResponse => {
-      this.investorsArray = this.selectionPages(investorResponse, 10);
+      this.investorsArray = this.selectionPages(investorResponse, 10).reverse();
     })
   }
 
@@ -74,7 +74,7 @@ export class InvestorListComponent {
   }
 
   onSearchClick(value: string) {
-
+    if (value === "") return;
     const searchValue = this.capitilize(value);
 
     this.investorService.searchInvestorsByName(searchValue).subscribe(
@@ -97,7 +97,7 @@ export class InvestorListComponent {
   onClearSearchClick() {
     this.searchInput = "";
     this.investorService.getInvestors().subscribe(investorResponse => {
-      this.investorsArray = this.selectionPages(investorResponse, 10);
+      this.investorsArray = this.selectionPages(investorResponse, 10).reverse();
     })
     setTimeout(() => {
     this.hasUserSearched = false;
