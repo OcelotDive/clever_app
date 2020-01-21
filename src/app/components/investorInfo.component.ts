@@ -36,6 +36,7 @@ import { InvestorService } from '../services/investor.service';
       <input name="balanceInputArea" type="text" class="form-control" #balanceInputTextBox placeholder="Add balance" (keyup.enter)="addAccountClick(balanceInputTextBox.value)" />
     </div>
     <div id="individualInvestorFormGroupPadding">
+    <div class="warningMessage" *ngIf="detailError === true">Warning: Ensure account type and balance have been added</div>
     </div>
     <button class="btn btn-info" (click)="addAccountClick(balanceInputTextBox.value, accountSelect.options[accountSelect.selectedIndex].value)">Add Account</button>
     <button class="btn btn-info" routerLink="/investorList" routerLinkActive="active">Back to Investor List</button>
@@ -52,6 +53,7 @@ export class InvestorInfoComponent {
   investorArray: Object[];
   investorAccounts: Object[];
   newAccountId: number;
+  detailError: boolean = false;
 
   constructor(private investorService: InvestorService, private route: ActivatedRoute) {
 
@@ -67,7 +69,11 @@ export class InvestorInfoComponent {
   }
 
   addAccountClick(balanceValue: string, accountType: string) {
-    if (balanceValue.length <= 0 || accountType.length <= 0) return;
+    this.detailError = false;
+    if (balanceValue.length <= 0 || accountType.length <= 0) {
+        this.detailError = true;
+      return;
+    } 
     const accountObj = {
       accountId: 0,
       investorId: 0,
