@@ -32,7 +32,7 @@ h6 {
 
 .logoImage {
   width: 200px;
-  height: 70px;
+  height: 50px;
 }
 
 .searchLabel {
@@ -198,6 +198,45 @@ tr:nth-child(even) {
   margin: auto;
 }
 
+.spinnerPage {
+	position: fjixed;
+  top: 0;
+  left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 9999;
+	background-color:transparent;
+  opacity: 0.8;
+}
+.spinner {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	display: inline-block;
+	width: 100px;
+	height:100px;
+	border-radius: 100px;
+	line-height: 100px;
+  font-weight: 900;
+ 
+	
+}
+.spinner::before {
+	position: absolute;
+	content: "";
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	color: #FC0FC0;
+	box-shadow: inset -5px 0 0 5px currentColor;
+	clip: rect(0, 100px, 50px, 0);
+	animation: rotate 1s infinite linear;
+	
+}
+
 /*media*/
 
 @media (min-width: 600px) {
@@ -210,4 +249,20 @@ tr:nth-child(even) {
   .panel {
     order: 99;
   }
+}
+
+@keyframes rotate{
+	0%{
+		transform: rotate(-180deg);
+		box-shadow: inset -5px 0 0 5px currentColor;
+	}
+	50%{
+		transform: rotate(0deg);		
+		box-shadow: inset -1px 0 0 1px currentColor;
+	}
+	100%{
+		transform: rotate(180deg);
+		box-shadow: inset -5px 0 0 5px currentColor;
+	}
+	
 }

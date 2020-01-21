@@ -7,6 +7,11 @@ declare var google: any;
 @Component({
   selector: 'reportChart',
   template: `
+  <div class="spinnerPage" *ngIf="loading === true">
+		<div class="spinner center">
+    &nbsp;&nbsp;Loading...
+		</div>
+		</div>
   <main class="mainPageReport">
   <div class="tabsInvestorPage colFlex">
   <img class="logoImage" src="assets/cleverNB.png" />
@@ -30,6 +35,7 @@ export class ReportComponent {
   gia: number = 0;
   pension: number = 0;
   other: number = 0;
+  loading: boolean = true;
 
   constructor(private investorService: InvestorService) {
 
@@ -75,11 +81,7 @@ export class ReportComponent {
         position: 'bottom'
       },
       is3D: true,
-      animation: {
-        startup: true,
-        duration: 10000,
-        easing: 'out'
-      },
+      
     };
 
     const pieChart = new google.visualization.PieChart(this.customChart.nativeElement);
@@ -94,7 +96,8 @@ export class ReportComponent {
       ['Other', this.other]
     ]);
       pieChart.draw(data, options);
-    }, 1500)
+      this.loading = false;
+    }, 2000)
   }
 
   drawScatterChart = () => {
